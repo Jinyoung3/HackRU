@@ -3,10 +3,10 @@ import { View, Text, Button, TextInput, StyleSheet } from 'react-native';
 
 const InputScreen = ({ navigation }) => {
   const [inputValues, setInputValues] = useState({
-    input1: 'd',
-    input2: 'd',
-    input3: 'd',
-    input4: 'd',
+    input1: '',
+    input2: '',
+    input3: '',
+    input4: '',
   });
 
   const handleInputChange = (name, value) => {
@@ -17,14 +17,19 @@ const InputScreen = ({ navigation }) => {
   };
 
   const handleButtonPress = () => {
-    navigation.navigate('Home', {inputValues});
+    navigation.navigate('Home', { inputValues });
+    setInputValues({
+      input1: '',
+      input2: '',
+      input3: '',
+      input4: '',
+    });
   };
 
   return (
     <View style={styles.container}>
-        <Text>Type of Bus:</Text>
+      <Text>Type of Bus:</Text>
       <TextInput
-      defaultValue='none'
         style={styles.input}
         placeholder="Enter value 1"
         onChangeText={(value) => handleInputChange('input1', value)}
@@ -32,7 +37,6 @@ const InputScreen = ({ navigation }) => {
       />
       <Text>Bus Number:</Text>
       <TextInput
-      defaultValue='none'
         style={styles.input}
         placeholder="Enter value 2"
         onChangeText={(value) => handleInputChange('input2', value)}
@@ -40,7 +44,6 @@ const InputScreen = ({ navigation }) => {
       />
       <Text>Length of Break(in minutes):</Text>
       <TextInput
-      defaultValue='none'
         style={styles.input}
         placeholder="Enter value 3"
         onChangeText={(value) => handleInputChange('input3', value)}
@@ -48,7 +51,6 @@ const InputScreen = ({ navigation }) => {
       />
       <Text>Current stop:</Text>
       <TextInput
-      defaultValue='none'
         style={styles.input}
         placeholder="Enter value 4"
         onChangeText={(value) => handleInputChange('input4', value)}
